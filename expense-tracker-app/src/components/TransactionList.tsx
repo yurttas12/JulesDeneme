@@ -18,7 +18,10 @@ const TransactionList = () => {
           >
             <div>
               <p className="font-bold text-white">{transaction.title}</p>
-              <p className="text-gray-400">{transaction.date}</p>
+              <p className="text-gray-400">
+                {transaction.date} - <span className="font-semibold">{transaction.category}</span>
+              </p>
+              {transaction.notes && <p className="text-gray-500 text-sm italic mt-1">{transaction.notes}</p>}
             </div>
             <div className="flex items-center">
               <p

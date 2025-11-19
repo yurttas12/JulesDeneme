@@ -9,10 +9,12 @@ const AddTransaction = () => {
   const [amount, setAmount] = useState('');
   const [type, setType] = useState<'Income' | 'Expense'>('Income');
   const [date, setDate] = useState('');
+  const [category, setCategory] = useState('');
+  const [notes, setNotes] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title || !amount || !date) {
+    if (!title || !amount || !date || !category) {
       alert('Please fill in all fields');
       return;
     }
@@ -22,12 +24,16 @@ const AddTransaction = () => {
       amount: parseFloat(amount),
       type,
       date,
+      category,
+      notes,
     });
 
     setTitle('');
     setAmount('');
     setType('Income');
     setDate('');
+    setCategory('');
+    setNotes('');
   };
 
   return (
@@ -81,6 +87,29 @@ const AddTransaction = () => {
             id="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            className="w-full p-2 rounded bg-gray-700 text-white"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-300 mb-2" htmlFor="category">
+            Category
+          </label>
+          <input
+            type="text"
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full p-2 rounded bg-gray-700 text-white"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-300 mb-2" htmlFor="notes">
+            Notes
+          </label>
+          <textarea
+            id="notes"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
             className="w-full p-2 rounded bg-gray-700 text-white"
           />
         </div>
