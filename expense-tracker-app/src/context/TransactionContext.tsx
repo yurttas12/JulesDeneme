@@ -11,6 +11,7 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const storedTransactions = localStorage.getItem('transactions');
     if (storedTransactions) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTransactions(JSON.parse(storedTransactions));
     }
   }, []);

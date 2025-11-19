@@ -4,6 +4,8 @@ export interface Transaction {
   amount: number;
   type: 'Income' | 'Expense';
   date: string;
+  category: string;
+  notes?: string;
 }
 
 export interface TransactionContextType {
